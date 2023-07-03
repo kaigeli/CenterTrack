@@ -8,7 +8,7 @@ After installing Anaconda:
 0. [Optional but highly recommended] create a new conda environment. 
 
     ~~~
-    conda create --name CenterTrack python=3.6
+    conda create --name CenterTrack python=3.7
     ~~~
     And activate the environment.
     
@@ -19,7 +19,7 @@ After installing Anaconda:
 1. Install PyTorch:
 
     ~~~
-    conda install pytorch torchvision -c pytorch
+    conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
     ~~~
     
 
@@ -45,13 +45,13 @@ After installing Anaconda:
     ~~~
     
     
-5. Compile deformable convolutional (from [DCNv2](https://github.com/CharlesShang/DCNv2/)).
+5. Compile deformable convolutional (from [DCNv2](https://github.com/lucasjinreal/DCNv2_latest.git)).
 
     ~~~
     cd $CenterTrack_ROOT/src/lib/model/networks/
-    # git clone https://github.com/CharlesShang/DCNv2/ # clone if it is not automatically downloaded by `--recursive`.
+    # git clone https://github.com/lucasjinreal/DCNv2_latest.git # clone if it is not automatically downloaded by `--recursive`.
     cd DCNv2
-    ./make.sh
+    python setup.py build develop
     ~~~
 
 6. Download pertained models for [monocular 3D tracking](https://drive.google.com/open?id=1e8zR1m1QMJne-Tjp-2iY_o81hn2CiQRt), [80-category tracking](https://drive.google.com/open?id=1tJCEJmdtYIh8VuN8CClGNws3YO7QGd40), or [pose tracking](https://drive.google.com/open?id=1H0YvFYCOIZ06EzAkC2NxECNQGXxK27hH) and move them to `$CenterTrack_ROOT/models/`. More models can be found in [Model zoo](MODEL_ZOO.md).
