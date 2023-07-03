@@ -55,3 +55,10 @@ After installing Anaconda:
     ~~~
 
 6. Download pertained models for [monocular 3D tracking](https://drive.google.com/open?id=1e8zR1m1QMJne-Tjp-2iY_o81hn2CiQRt), [80-category tracking](https://drive.google.com/open?id=1tJCEJmdtYIh8VuN8CClGNws3YO7QGd40), or [pose tracking](https://drive.google.com/open?id=1H0YvFYCOIZ06EzAkC2NxECNQGXxK27hH) and move them to `$CenterTrack_ROOT/models/`. More models can be found in [Model zoo](MODEL_ZOO.md).
+
+7. 可能报错：
+subprocess.CalledProcessError: Command '['git', 'describe']' returned non-zero exit status 128.
+
+    解决办法：
+vim /home/lkg/.conda/envs/CenterTrack1/lib/python3.7/subprocess.py
+第410行，将check=True改为 check=False
